@@ -607,7 +607,7 @@ GameObject:
   - component: {fileID: 1040912815}
   - component: {fileID: 1040912814}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: But2Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -756,7 +756,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1052412266}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1467438263}
+        m_TargetAssemblyTypeName: Riddler, Assembly-CSharp
+        m_MethodName: But1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1052412266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1219,7 +1231,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Riddler
   narrator: {fileID: 1478659312}
   strikes: {fileID: 1482320239}
+  ButText1: {fileID: 1599557534}
+  ButText2: {fileID: 1040912814}
   strikesLeft: 3
+  gameOver: 0
+  but1: 0
+  but2: 0
 --- !u!1 &1478659310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,7 +1409,7 @@ GameObject:
   - component: {fileID: 1599557535}
   - component: {fileID: 1599557534}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: But1Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1541,7 +1558,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1665955473}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1467438263}
+        m_TargetAssemblyTypeName: Riddler, Assembly-CSharp
+        m_MethodName: But2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1665955473
 MonoBehaviour:
   m_ObjectHideFlags: 0
