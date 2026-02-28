@@ -47,6 +47,12 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	void OnTriggerEnter( Collider door )
+	{
+		if( door.gameObject.CompareTag("Door") )
+			Riddler.collidedWDoor = true;
+	}
+
 	// Update is called once per frame
 	// void Update()
 	// {

@@ -5,14 +5,17 @@ using UnityEngine.UI;
 
 public class Riddler : MonoBehaviour
 {
-	static private Riddler R;
+	public static Riddler R;
 	public Text narrator;
 	public Text strikes;
 	public Text ButText1;
 	public Text ButText2;
+	public GameObject goPlayer;
+	public GameObject goDoor;
 	public int strikesLeft = 3;
 	public bool gameOver = false;
-	Transform ogPos;
+	static public bool collidedWDoor = false;
+	Vector3 ogPos = new Vector3(0, .78f, -3.1f);
 
 	public enum gameStage {Intro = 0, Interim1, Riddle1, Interim2, Incorrect1, Riddle2, Interim3, Incorrect2, Riddle3, GameOver, Win, Bye};
 	gameStage currentStage = gameStage.Intro;
@@ -27,6 +30,9 @@ public class Riddler : MonoBehaviour
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
+		goPlayer = GameObject.Find("Player");
+		goDoor = GameObject.Find("Door");
+		goDoor.SetActive(false);
 		narrator.text = "Welcome, to Simply Riddle Me!";
 		strikes.text = "Strikes: " + strikesLeft;
 	}
@@ -54,7 +60,7 @@ public class Riddler : MonoBehaviour
 				ButText2.text = "No";
 				if( but1 )
 				{
-					currentStage = gameStage.Riddle1;
+					currentStage = gameStage.Interim1;
 					but1 = false;
 				}
 				else if( but2 )
@@ -64,12 +70,18 @@ public class Riddler : MonoBehaviour
 				}
 				break;
 			case gameStage.Interim1:
-				narrator.text = "Well then, here comes riddle number 1!";
-				ButText1.text = "Next";
-				if( but1 )
-				{
+				ButText1.text = "";
+				ButText2.text = "";
+				goDoor.SetActive(true);
+				narrator.text = "Well then, walk through the white door to start the game!";
+				if( collidedWDoor )
+				{ 
+					// move player back to the original position;
+					goPlayer.transform.position = ogPos;
+					// move onto the next riddle
 					currentStage = gameStage.Riddle1;
-					but1 = false;
+					collidedWDoor = false;
+					goDoor.SetActive(false);
 				}
 				break;
 			case gameStage.Riddle1:
