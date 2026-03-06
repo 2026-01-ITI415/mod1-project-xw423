@@ -1373,8 +1373,10 @@ MonoBehaviour:
   strikes: {fileID: 1482320239}
   ButText1: {fileID: 1599557534}
   ButText2: {fileID: 1040912814}
-  goPlayer: {fileID: 0}
-  goDoor: {fileID: 0}
+  Button1: {fileID: 1052412263}
+  Button2: {fileID: 1665955470}
+  goPlayer: {fileID: 850883055}
+  goDoor: {fileID: 1128291708}
   strikesLeft: 3
   gameOver: 0
   but1: 0
